@@ -25,5 +25,36 @@ public class ModelLaporanPerkara implements ModelLaporanPerkaraInterface {
 		return this.laporanPerkaraRepo.save(laporanPerkara);
 		}
 
+		@Override
+		public LaporanPerkara getLaporanByName(String name) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public LaporanPerkara getLaporanPerkaraById(String id) {
+			// TODO Auto-generated method stub
+			return laporanPerkaraRepo.findByIdPelapor(Long.parseLong(id));
+		}
+
+		
+		
+		@Override
+		public LaporanPerkara cariApprove() {
+			// TODO Auto-generated method stub
+			return this.laporanPerkaraRepo.findApprove();
+		}
+
+		@Override
+		public LaporanPerkara cariProses() {
+			// TODO Auto-generated method stub
+			return this.laporanPerkaraRepo.findProccess();
+		}
+
+		public void save(LaporanPerkara updateStatus) {
+			// TODO Auto-generated method stub
+			this.laporanPerkaraRepo.save(updateStatus);
+		}
+	 
 		
 }

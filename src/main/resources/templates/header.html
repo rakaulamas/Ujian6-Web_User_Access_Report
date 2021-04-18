@@ -8,12 +8,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a th:attr="class=${active == 1 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/korban/view'}">Dashboard </a>
+        <a th:attr="class=${active == 1 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/dashboard'}">Dashboard </a>
         <div sec:authorize="hasRole('ROLE_USER')">
-        	<a th:attr="class=${active ==2 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/korban/add'}">Tambah Laporan</a>
+        	<a th:attr="class=${active ==2 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/laporan/add'}">Tambah Laporan</a>
         </div>
         <div sec:authorize="hasRole('ROLE_ADMIN')">
-        	<a th:attr="class=${active ==3 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/korban/Adminview'}">Proses Laporan</a>
+        	<a th:attr="class=${active ==3 ? 'nav-link active' : 'nav-link'}"  th:href="@{'/laporan/adminview/'}">Proses Laporan</a>
         </div>
         	<a th:href="@{'/logout'}" class ="nav-link" tabindex="-1" aria-disabled="true" style="color:red;">Logout</a>
       </div>

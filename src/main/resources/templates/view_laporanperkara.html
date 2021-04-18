@@ -8,10 +8,16 @@
 </head>
 <body>
 
-<a th:href="@{'/laporan/add/'}" class="btn btn-primary btn-sm " tabindex="-1" role="button" > Tambah Laporan </a>
+<div th:replace="header :: header(active=${active})">
+</div>
+
+
 
 <div class="table-responsive"> 
+<div class="container-md">	
+<div class="my-4 p-8 bg-body rounded shadow-md">
 <table class="table table-light table-hover">
+<a th:href="@{'/laporan/add/'}" class="btn btn-primary btn-sm " tabindex="-1" role="button" > Tambah Laporan </a>
 
   <thead class="table-dark">
     <tr>
@@ -33,13 +39,23 @@
       <td th:text="${laporanperkara.kejadian}" ></td>
       <td th:text="${laporanperkara.alamat}" ></td>
       <td th:text="${laporanperkara.keterangan}" ></td>
-      <td th:text="${laporanperkara.status}" ></td>
-      
       <td><img th:src="@{${laporanperkara.gambar}}" width="100" height="100"></td>
+      <td th:text="${laporanperkara.status} ?: 'Pending' "></td>
+      <td>
+      	<div th:switch="${laporanperkara.status}">
+      	<div th:case = 'null'>
       
-      <td> 
       		<a th:href="@{/laporan/update/{id}(id=${laporanperkara.idPelapor})}" class="btn btn-primary btn-sm" tabindex="-1" role="button" > <i class="fa fa-folder"> </i> Approve </a>
       		<a th:href="@{/laporan/delete/{id}(id=${laporanperkara.idPelapor})}" class="btn btn-danger btn-sm" tabindex="-1" role="button" > <i class="fa fa-close"> </i> Reject </a>
+		</div>
+        	<div th:case = 'Approve'>
+        		<p>Selesai</p>
+        	</div>
+        	<div th:case = 'Reject'>
+        		<p>Selesai</p>
+        	</div>
+     	</div>      
+      
       </td>
     </tr>
     
